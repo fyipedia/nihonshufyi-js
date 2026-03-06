@@ -19,6 +19,8 @@ TypeScript API client for [NihonshuFYI](https://nihonshufyi.com) -- the comprehe
   - [Sake Rice Varieties](#sake-rice-varieties)
   - [Key Sake Concepts](#key-sake-concepts)
 - [API Reference](#api-reference)
+- [REST API (No Auth Required)](#rest-api-no-auth-required)
+- [Features](#features)
 - [TypeScript Types](#typescript-types)
 - [Learn More About Sake](#learn-more-about-sake)
 - [Also Available for Python](#also-available-for-python)
@@ -123,6 +125,45 @@ Polishing ratio is the percentage of rice grain remaining after milling. Outer l
 | `compare(slugA, slugB)` | Compare two sake expressions |
 | `random()` | Random sake expression |
 
+## REST API (No Auth Required)
+
+All endpoints are free, require no authentication, and return JSON with CORS enabled.
+
+```bash
+curl "https://nihonshufyi.com/api/v1/search/?q=junmai+daiginjo"
+curl "https://nihonshufyi.com/api/v1/sake/dassai-23/"
+curl "https://nihonshufyi.com/api/v1/rice/yamada-nishiki/"
+curl "https://nihonshufyi.com/api/v1/breweries/asahi-shuzo/"
+curl "https://nihonshufyi.com/api/v1/compare/dassai-23/kubota-manju/"
+curl "https://nihonshufyi.com/api/v1/random/"
+```
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/sake/` | List all 80 sake expressions |
+| GET | `/api/v1/sake/{slug}/` | Sake detail with grade, tasting notes |
+| GET | `/api/v1/rice/` | List all 10 sake rice varieties |
+| GET | `/api/v1/rice/{slug}/` | Rice variety detail |
+| GET | `/api/v1/breweries/` | List all 50 breweries |
+| GET | `/api/v1/breweries/{slug}/` | Brewery detail |
+| GET | `/api/v1/glossary/{slug}/` | Glossary term definition |
+| GET | `/api/v1/search/?q={query}` | Search across all content |
+| GET | `/api/v1/compare/{slug1}/{slug2}/` | Compare two sake expressions |
+| GET | `/api/v1/random/` | Random sake expression |
+| GET | `/api/v1/openapi.json` | OpenAPI 3.1.0 specification |
+
+Full spec: [OpenAPI 3.1.0](https://nihonshufyi.com/api/v1/openapi.json)
+
+## Features
+
+- **Comprehensive sake data**: 80 expressions, 10 rice varieties, 50 breweries
+- **Tokutei meishoshu classification**: Junmai, ginjo, daiginjo grade system
+- **Polishing ratios**: Seimaibuai data for every expression
+- **Sake glossary**: Koji, moromi, and brewing terminology
+- **Zero dependencies**: Uses native `fetch`, no runtime deps
+- **Type-safe**: Full TypeScript with strict mode
+- **Tree-shakeable**: ESM with named exports
+
 ## TypeScript Types
 
 ```typescript
@@ -131,10 +172,7 @@ import type { SearchResult, GlossaryTerm, SakeDetail, BreweryDetail, GradeDetail
 
 ## Learn More About Sake
 
-- **Reference**: [Sake](https://nihonshufyi.com/sake/) | [Rice](https://nihonshufyi.com/rice/) | [Breweries](https://nihonshufyi.com/breweries/)
-- **Guides**: [Sake Guides](https://nihonshufyi.com/guides/) | [Glossary](https://nihonshufyi.com/glossary/)
-- **API**: [Developer Docs](https://nihonshufyi.com/developers/) | [OpenAPI Spec](https://nihonshufyi.com/api/openapi.json)
-- **Python**: [PyPI Package](https://pypi.org/project/nihonshufyi/)
+Visit [nihonshufyi.com](https://nihonshufyi.com/) to explore 80 sake expressions, 9 grades, 10 rice varieties, 50 breweries, and sake terminology with interactive tools.
 
 ## Also Available for Python
 
@@ -142,7 +180,11 @@ import type { SearchResult, GlossaryTerm, SakeDetail, BreweryDetail, GradeDetail
 pip install nihonshufyi
 ```
 
-See the [Python package on PyPI](https://pypi.org/project/nihonshufyi/).
+See [nihonshufyi on PyPI](https://pypi.org/project/nihonshufyi/) for the Python package with API client, CLI, and MCP server.
+
+<p align="center">
+  <img src="demo.gif" alt="NihonshuFYI demo -- sake API client for TypeScript" width="800">
+</p>
 
 ## Beverage FYI Family
 
@@ -152,7 +194,7 @@ Part of the [FYIPedia](https://fyipedia.com) open-source developer tools ecosyst
 |---------|------|-----|-------------|
 | cocktailfyi | [PyPI](https://pypi.org/project/cocktailfyi/) | [npm](https://www.npmjs.com/package/cocktailfyi) | 636 cocktails, ABV, calories -- [cocktailfyi.com](https://cocktailfyi.com/) |
 | vinofyi | [PyPI](https://pypi.org/project/vinofyi/) | [npm](https://www.npmjs.com/package/vinofyi) | Wines, grapes, regions, food pairings -- [vinofyi.com](https://vinofyi.com/) |
-| beerfyi | [PyPI](https://pypi.org/project/beerfyi/) | [npm](https://www.npmjs.com/package/beerfyi) | 112 beer styles, hops, malts -- [beerfyi.com](https://beerfyi.com/) |
+| beerfyi | [PyPI](https://pypi.org/project/beerfyi/) | [npm](https://www.npmjs.com/package/@fyipedia/beerfyi) | 112 beer styles, hops, malts -- [beerfyi.com](https://beerfyi.com/) |
 | brewfyi | [PyPI](https://pypi.org/project/brewfyi/) | [npm](https://www.npmjs.com/package/brewfyi) | 72 coffee varieties, brew methods -- [brewfyi.com](https://brewfyi.com/) |
 | whiskeyfyi | [PyPI](https://pypi.org/project/whiskeyfyi/) | [npm](https://www.npmjs.com/package/whiskeyfyi) | 80 whiskey expressions, distilleries -- [whiskeyfyi.com](https://whiskeyfyi.com/) |
 | teafyi | [PyPI](https://pypi.org/project/teafyi/) | [npm](https://www.npmjs.com/package/teafyi) | 60 tea varieties, teaware -- [teafyi.com](https://teafyi.com/) |
