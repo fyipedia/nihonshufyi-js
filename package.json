@@ -1,0 +1,48 @@
+{
+  "name": "nihonshufyi",
+  "version": "0.1.0",
+  "description": "TypeScript API client for NihonshuFYI -- sake grades, rice varieties, breweries, and Japanese brewing traditions. Zero dependencies.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "sake",
+    "nihonshu",
+    "japanese-sake",
+    "junmai",
+    "daiginjo",
+    "brewery",
+    "rice-wine",
+    "koji",
+    "seimaibuai",
+    "toji",
+    "api-client",
+    "nihonshufyi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fyipedia/nihonshufyi-js"
+  },
+  "homepage": "https://nihonshufyi.com",
+  "license": "MIT",
+  "author": "FYIPedia",
+  "devDependencies": {
+    "tsup": "^8.0",
+    "typescript": "^5.7",
+    "vitest": "^3.0"
+  }
+}
