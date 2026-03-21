@@ -76,7 +76,7 @@ The tokutei meishoshu (special designation sake) system classifies premium sake 
 
 The "junmai" prefix means pure rice -- no distilled alcohol added.
 
-Learn more: [Sake Grades](https://nihonshufyi.com/grade/) -- [Sake Encyclopedia](https://nihonshufyi.com/sake/)
+Learn more: [Sake Grades](https://nihonshufyi.com/grades/) -- [Sake Encyclopedia](https://nihonshufyi.com/sake/)
 
 ### Rice Polishing (Seimaibuai)
 
@@ -133,9 +133,9 @@ All endpoints are free, require no authentication, and return JSON with CORS ena
 curl "https://nihonshufyi.com/api/v1/search/?q=junmai+daiginjo"
 curl "https://nihonshufyi.com/api/v1/sake/dassai-23/"
 curl "https://nihonshufyi.com/api/v1/rice/yamada-nishiki/"
-curl "https://nihonshufyi.com/api/v1/breweries/asahi-shuzo/"
-curl "https://nihonshufyi.com/api/v1/compare/dassai-23/kubota-manju/"
-curl "https://nihonshufyi.com/api/v1/random/"
+curl ""
+curl ""
+curl ""
 ```
 
 | Method | Endpoint | Description |
@@ -152,9 +152,7 @@ curl "https://nihonshufyi.com/api/v1/random/"
 | GET | `/api/v1/random/` | Random sake expression |
 | GET | `/api/v1/openapi.json` | OpenAPI 3.1.0 specification |
 
-Full spec: [OpenAPI 3.1.0](https://nihonshufyi.com/api/v1/openapi.json)
-
-## Features
+Full spec: ## Features
 
 - **Comprehensive sake data**: 80 expressions, 10 rice varieties, 50 breweries
 - **Tokutei meishoshu classification**: Junmai, ginjo, daiginjo grade system
